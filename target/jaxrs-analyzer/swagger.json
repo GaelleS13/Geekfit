@@ -1,0 +1,869 @@
+
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.1-SNAPSHOT",
+        "title": "geekfit"
+    },
+    "host": "",
+    "basePath": "/geekfit/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "description": "Home page",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/challenge": {
+            "post": {
+                "description": "To create a new challenge",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the challenge to create"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "To delete a challenge",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the challenge to delete"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/challenge/{id}/admin": {
+            "post": {
+                "description": "To add an admin of the challenge",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the concerned challenge"
+                    },
+                    {
+                        "type": "string",
+                        "name": "usernameNewAdmin",
+                        "in": "query",
+                        "required": true,
+                        "description": "Username of the new challenge admin"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "To remove and admin of the challenge",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the concerned challenge"
+                    },
+                    {
+                        "type": "string",
+                        "name": "usernameDelAdmin",
+                        "in": "query",
+                        "required": true,
+                        "description": "Username of the admin to remove"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/challenge/{id}/crosspoint": {
+            "post": {
+                "description": "To add a crossing point in a challenge",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "name": "crossPointId",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/challenge/{id}/description": {
+            "post": {
+                "description": "To add a description to the challenge",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the concerned challenge"
+                    },
+                    {
+                        "type": "string",
+                        "name": "description",
+                        "in": "query",
+                        "required": true,
+                        "description": "Description of the challenge"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/challenge/{id}/mode": {
+            "post": {
+                "description": "To change the number of players of the challenge",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the concerned challenger"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "mode",
+                        "in": "query",
+                        "required": true,
+                        "description": "Number of players"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/challenge/{id}/segment": {
+            "post": {
+                "description": "To add a segment in a challenge",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the concerned challenge"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "nextCPId",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the next crossing point"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "previousCPId",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the previous crossing point"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "segmentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the new segment"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "To remove a segment in a challenge",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the concerned challenge"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "segmentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the concerned segment"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/challenge/{id}/segment/{segmentId}/obstacle": {
+            "post": {
+                "description": "To add a new obstacle",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the concerned challenge"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "segmentId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the concerned segment"
+                    },
+                    {
+                        "type": "string",
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "description": "Name of the obstacle"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "obstacleId",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the new obstacle"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "To delete an obstacle",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the concerned challenge"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "segmentId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the concerned segment"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "obstacleId",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the concerned obstacle"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/challenges": {
+            "get": {
+                "description": "To see all the existing challenges",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/profile": {
+            "get": {
+                "description": "Display the profile of the connected user",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "To change password",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "newPassword",
+                        "in": "query",
+                        "required": true,
+                        "description": "New password"
+                    },
+                    {
+                        "type": "string",
+                        "name": "oldPassword",
+                        "in": "query",
+                        "required": true,
+                        "description": "Old password"
+                    },
+                    {
+                        "type": "string",
+                        "name": "username",
+                        "in": "query",
+                        "required": true,
+                        "description": "Username"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "To delete the account",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "description": "Passowrd"
+                    },
+                    {
+                        "type": "string",
+                        "name": "username",
+                        "in": "query",
+                        "required": true,
+                        "description": "Username"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/profile/challenge": {
+            "put": {
+                "description": "To register to a challenge",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the challenge the account wants to register to"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/profile/challenges": {
+            "get": {
+                "description": "To see all the challenges the account is registered to",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/signin": {
+            "put": {
+                "description": "To sign in the geekfit application",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "description": "Password"
+                    },
+                    {
+                        "type": "string",
+                        "name": "username",
+                        "in": "query",
+                        "required": true,
+                        "description": "Username"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/signout": {
+            "put": {
+                "description": "To sign out of the account",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/signup": {
+            "post": {
+                "description": "To register on the geekfit application",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "description": "Password"
+                    },
+                    {
+                        "type": "string",
+                        "name": "username",
+                        "in": "query",
+                        "required": true,
+                        "description": "Username"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/votes": {
+            "put": {
+                "description": "To vote for a suggestion",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the suggestion"
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "vote",
+                        "in": "query",
+                        "required": true,
+                        "description": "True or false to vote yes or no for a suggestion"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/votes/closing": {
+            "put": {
+                "description": "To close the votes for a suggestion",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the concerned suggestion"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/votes/result": {
+            "get": {
+                "description": "To display the result of a vote",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the concerned suggestion"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/votes/suggestion": {
+            "post": {
+                "description": "To suggest a new challenge",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the suggestion"
+                    },
+                    {
+                        "type": "string",
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "description": "Name of the suggestion"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/votes/validate": {
+            "put": {
+                "description": "To validate a suggestion",
+                "consumes": [
+                ],
+                "produces": [
+                    "text/plain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Id of the concerned suggestion"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+    }
+}

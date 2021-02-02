@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="geekfit"
+		transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/geekfit</jta-data-source>
+
+		<class>fr.uha.models.Challenge</class>
+		<class>fr.uha.models.CrossingPoint</class>
+		<class>fr.uha.models.Obstacle</class>
+		<class>fr.uha.models.Segment</class>
+		<class>fr.uha.models.User</class>
+		<class>fr.uha.models.Suggestion</class>
+
+		<properties>
+			<property name="eclipselink.ddl-generation"
+				value="create-tables" />
+		</properties>
+	</persistence-unit>
+</persistence>
