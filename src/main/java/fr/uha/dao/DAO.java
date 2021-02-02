@@ -52,6 +52,7 @@ public class DAO implements ServletContextListener {
 
 	// _________________________________ JSON _________________________________ //
 
+	// Converting an array to JSon
 	@SuppressWarnings("rawtypes")
 	public static String arrayToJson(List list) {
 		String result = "{";
@@ -64,6 +65,7 @@ public class DAO implements ServletContextListener {
 
 	// ______________________________ CHALLENGES ______________________________ //
 
+	// Getting a list of challenges
 	public static List<Challenge> getChall() {
 		EntityManager entitymanager = getEntityManager();
 		List<Challenge> chals = entitymanager.createQuery("from Challenge c", Challenge.class).getResultList();
@@ -71,6 +73,7 @@ public class DAO implements ServletContextListener {
 		return chals;
 	}
 
+	// Getting a Single challenge
 	public static Challenge getChall(int id) {
 		for (Challenge chall : getChall()) {
 			if (chall.getChallengeId() == id) {
@@ -80,6 +83,7 @@ public class DAO implements ServletContextListener {
 		return null;
 	}
 
+	// Adding an admin to a challenge
 	public static void addAdmin(int id, int userId)
 			throws SecurityException, IllegalStateException, RollbackException, HeuristicMixedException,
 			HeuristicRollbackException, SystemException, NotSupportedException, NamingException {
@@ -92,6 +96,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Deleting an admin from a challenge
 	public static void delAdmin(int id, int userId)
 			throws SecurityException, IllegalStateException, RollbackException, HeuristicMixedException,
 			HeuristicRollbackException, SystemException, NotSupportedException, NamingException {
@@ -104,6 +109,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Creating a challenge
 	public static void addChall(Challenge challenge)
 			throws NotSupportedException, SystemException, SecurityException, IllegalStateException, RollbackException,
 			HeuristicMixedException, HeuristicRollbackException, NamingException {
@@ -115,6 +121,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Deleting a challenge
 	public static void delChall(int id)
 			throws NotSupportedException, SystemException, NamingException, SecurityException, IllegalStateException,
 			RollbackException, HeuristicMixedException, HeuristicRollbackException {
@@ -131,6 +138,7 @@ public class DAO implements ServletContextListener {
 
 	}
 
+	// Converting an id list to a list of challenges
 	public static ArrayList<Challenge> challIdsToChall(ArrayList<Integer> cids) {
 		ArrayList<Challenge> listChall = new ArrayList<Challenge>();
 		for (int challId : cids) {
@@ -142,6 +150,7 @@ public class DAO implements ServletContextListener {
 		return listChall;
 	}
 
+	// Adding a description to the challenge
 	public static void addDescription(int id, String descritpion)
 			throws SecurityException, IllegalStateException, RollbackException, HeuristicMixedException,
 			HeuristicRollbackException, SystemException, NotSupportedException, NamingException {
@@ -156,6 +165,7 @@ public class DAO implements ServletContextListener {
 
 	// _________________________________ USERS _________________________________ //
 
+	// Getting the users
 	public static List<User> getUsers() {
 		EntityManager entitymanager = getEntityManager();
 		List<User> users = entitymanager.createQuery("from User u", User.class).getResultList();
@@ -163,6 +173,7 @@ public class DAO implements ServletContextListener {
 		return users;
 	}
 
+	// Testing if a user exists
 	public static boolean existingUser(String username) {
 		for (User user : getUsers()) {
 			if (user.getUsername().equals(username)) {
@@ -172,6 +183,7 @@ public class DAO implements ServletContextListener {
 		return false;
 	}
 
+	// Getting a single user
 	public static User getUser(String username) {
 		for (User user : getUsers()) {
 			if (user.getUsername().equals(username)) {
@@ -181,6 +193,7 @@ public class DAO implements ServletContextListener {
 		return null;
 	}
 
+	// Adding a user
 	public static void addUser(User user)
 			throws SecurityException, IllegalStateException, RollbackException, HeuristicMixedException,
 			HeuristicRollbackException, SystemException, NotSupportedException, NamingException {
@@ -192,6 +205,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Deleting a user
 	public static void delUser(User user)
 			throws NotSupportedException, SystemException, NamingException, SecurityException, IllegalStateException,
 			RollbackException, HeuristicMixedException, HeuristicRollbackException {
@@ -206,6 +220,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Setting the password
 	public static void setPassword(String username, String password)
 			throws NotSupportedException, SystemException, SecurityException, IllegalStateException, RollbackException,
 			HeuristicMixedException, HeuristicRollbackException, NamingException {
@@ -217,6 +232,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Adding a user to a challenge
 	public static void addUserToChall(String username, int id)
 			throws NotSupportedException, SystemException, SecurityException, IllegalStateException, RollbackException,
 			HeuristicMixedException, HeuristicRollbackException, NamingException {
@@ -228,6 +244,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Setting the number of players
 	public static void setMode(int id, int mode)
 			throws NotSupportedException, SystemException, SecurityException, IllegalStateException, RollbackException,
 			HeuristicMixedException, HeuristicRollbackException, NamingException {
@@ -242,6 +259,7 @@ public class DAO implements ServletContextListener {
 
 	// ______________________________ SUGGESTIONS ______________________________ //
 
+	// Getting the suggestions
 	public static List<Suggestion> getSuggestion() {
 		EntityManager entitymanager = getEntityManager();
 		List<Suggestion> sugs = entitymanager.createQuery("from Suggestion s", Suggestion.class).getResultList();
@@ -249,6 +267,7 @@ public class DAO implements ServletContextListener {
 		return sugs;
 	}
 
+	// Getting a single suggestion
 	public static Suggestion getSuggestion(int id) {
 		for (Suggestion suggestion : getSuggestion()) {
 			if (suggestion.getSuggestionId() == id) {
@@ -258,6 +277,7 @@ public class DAO implements ServletContextListener {
 		return null;
 	}
 
+	// Adding a suggestion
 	public static void addSugg(Suggestion suggestion)
 			throws SecurityException, IllegalStateException, RollbackException, HeuristicMixedException,
 			HeuristicRollbackException, SystemException, NotSupportedException, NamingException {
@@ -269,6 +289,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Deleting a suggestion
 	public static void delSugg(Suggestion suggestion)
 			throws NotSupportedException, SystemException, NamingException, SecurityException, IllegalStateException,
 			RollbackException, HeuristicMixedException, HeuristicRollbackException {
@@ -283,6 +304,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Voting yes
 	public static void addVoteYes(int id)
 			throws SecurityException, IllegalStateException, RollbackException, HeuristicMixedException,
 			HeuristicRollbackException, SystemException, NotSupportedException, NamingException {
@@ -295,6 +317,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Voting no
 	public static void addVoteNo(int id)
 			throws SecurityException, IllegalStateException, RollbackException, HeuristicMixedException,
 			HeuristicRollbackException, SystemException, NotSupportedException, NamingException {
@@ -307,6 +330,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Set the valdiation
 	public static void setValidated(int id, boolean bool)
 			throws NotSupportedException, SystemException, SecurityException, IllegalStateException, RollbackException,
 			HeuristicMixedException, HeuristicRollbackException, NamingException {
@@ -321,6 +345,7 @@ public class DAO implements ServletContextListener {
 
 	// _______________________________ CROSSPOINT _______________________________ //
 
+	// Getting a crossPoint
 	public static CrossingPoint getCrossPoint(int id, int crossPointId) {
 		for (CrossingPoint crossPoint : getChall(id).getCrossingPoints()) {
 			if (crossPoint.getCrossingPointId() == crossPointId) {
@@ -330,6 +355,7 @@ public class DAO implements ServletContextListener {
 		return null;
 	}
 
+	// Adding a crossPoint
 	public static void addCrossPoint(int id, CrossingPoint crossingPoint)
 			throws SecurityException, IllegalStateException, RollbackException, HeuristicMixedException,
 			HeuristicRollbackException, SystemException, NotSupportedException, NamingException {
@@ -344,6 +370,7 @@ public class DAO implements ServletContextListener {
 
 	// _______________________________ SEGMENTS _______________________________ //
 
+	// Getting a segment
 	public static Segment getSegment(int id, int segmentId) {
 		for (Segment segment : getChall(id).getSegments()) {
 			if (segment.getSegmentId() == id) {
@@ -353,6 +380,7 @@ public class DAO implements ServletContextListener {
 		return null;
 	}
 
+	// Adding a segment
 	public static void addSegment(int id, Segment segment)
 			throws NamingException, NotSupportedException, SystemException, SecurityException, IllegalStateException,
 			RollbackException, HeuristicMixedException, HeuristicRollbackException {
@@ -365,6 +393,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Deleting a segment
 	public static void delSegment(int id, int segmentId)
 			throws NotSupportedException, SystemException, SecurityException, IllegalStateException, RollbackException,
 			HeuristicMixedException, HeuristicRollbackException, NamingException {
@@ -378,6 +407,7 @@ public class DAO implements ServletContextListener {
 
 	// _______________________________ OBSTACLES _______________________________ //
 
+	// Adding an obstacle
 	public static void addObstacle(int id, int segmentId, Obstacle obstacle)
 			throws NamingException, NotSupportedException, SystemException, SecurityException, IllegalStateException,
 			RollbackException, HeuristicMixedException, HeuristicRollbackException {
@@ -390,6 +420,7 @@ public class DAO implements ServletContextListener {
 		entitymanager.close();
 	}
 
+	// Deleting an obstacle
 	public static void delObstacle(int id, int segmentId)
 			throws NamingException, NotSupportedException, SystemException, SecurityException, IllegalStateException,
 			RollbackException, HeuristicMixedException, HeuristicRollbackException {

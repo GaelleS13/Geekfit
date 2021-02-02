@@ -546,8 +546,8 @@ public class PathManager {
 	/**
 	 * To add a crossing point in a challenge
 	 * 
-	 * @param id
-	 * @param crossPointId
+	 * @param id           Id of the concerned challenge
+	 * @param crossPointId Id of the new crossing point
 	 * @return
 	 */
 	@POST
