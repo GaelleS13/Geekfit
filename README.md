@@ -13,14 +13,19 @@ Progress in the different challenges is made by walking, running or biking in th
 This app is coded in Java, it also uses different technologies like:
 
   -	Maven
+
 Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information.
   -	JPA
+
 The JPA specification lets you define which objects should be persisted, and how those objects should be persisted in your Java applications.
   -	MySQL
+
 MySQL is an open-source relational database management system (RDBMS) with a client-server model.
   -	Payara
+
 Payara Server is an open-source application server derived from GlassFish Server Open Source Edition.
   -	Jersey
+
 Jersey is Sun's production quality reference implementation for JSR 311: JAX-RS: The Java API for RESTful Web Services. Jersey implements support for the annotations defined in JSR-311, making it easy for developers to build RESTful web services with Java and the Java JVM.
 
 We invite you to install those pre-requisites if you have not already.
